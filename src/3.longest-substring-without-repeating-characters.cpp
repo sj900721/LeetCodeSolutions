@@ -51,29 +51,29 @@
 #include <algorithm>
 using std::string;
 
-// class Solution {
-// public:
-//     int lengthOfLongestSubstring(string s) {
-//         if (s.empty()) return 0;
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if (s.empty()) return 0;
 
-//         std::set<int> lengths;
-//         auto first_it = s.cbegin();
-//         auto last_it = s.cbegin() + 1;
-//         auto find_it = s.cbegin();
+        std::set<int> lengths;
+        auto first_it = s.cbegin();
+        auto last_it = s.cbegin() + 1;
+        auto find_it = s.cbegin();
 
-//         while(last_it != s.cend())
-//         {
-//             find_it = std::find(first_it, last_it, *last_it);
-//             if (find_it != last_it)
-//             {
-//                 lengths.insert(last_it - first_it);
-//                 first_it = find_it + 1;
-//             }
-//             last_it++;
-//         }
+        while(last_it != s.cend())
+        {
+            find_it = std::find(first_it, last_it, *last_it);
+            if (find_it != last_it)
+            {
+                lengths.insert(last_it - first_it);
+                first_it = find_it + 1;
+            }
+            last_it++;
+        }
 
-//         lengths.insert(last_it - first_it);
+        lengths.insert(last_it - first_it);
 
-//         return *lengths.rbegin();
-//     }
-// };
+        return *lengths.rbegin();
+    }
+};
